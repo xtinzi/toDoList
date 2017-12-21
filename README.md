@@ -79,7 +79,6 @@ now go to $ip_adress:8080/todo
 
 now you just need your VM's ip address
 
-https://user-images.githubusercontent.com/7296111/34256731-6ce7c200-e65f-11e7-9366-1248ce4e27f6.png
-
+![image1](https://user-images.githubusercontent.com/7296111/34256731-6ce7c200-e65f-11e7-9366-1248ce4e27f6.png)
 
 
