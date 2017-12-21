@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Edit todlist item</title>
+        <style>
+            a {text-decoration: none; color: black;}
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Edit todolist item: </h1>
+        <ul>
+            <li><%- item %></li>
+        </ul>
+
+        <form action="/todo/edit/" method="post">
+            <p>
+                <label for="newtodo">Change item to?</label>
+                <input type="text" name="edittodo" id="edittodo" autofocus />
+                <input type="hidden" name="edittodoid" id="edittodoid" value="<%- id %>" />
+                <input type="submit" />
+            </p>
+        </form>
+    </body>
+</html>
