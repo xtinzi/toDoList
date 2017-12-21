@@ -83,17 +83,24 @@ now you just need your VM's ip address
 Testing for XSS:
 using basic html tags we can test for a basic XSS vulnerability:
 
-Try changing the font colour to red using "<font color="blue">"
+Try changing the font colour to red using <font color="blue">
+
+
 ![image1](https://user-images.githubusercontent.com/7296111/34256731-6ce7c200-e65f-11e7-9366-1248ce4e27f6.png)
 
+
 As seen on the diagram below, this works, meaning you can insert the tag into the script
+
 
 ![image2](https://user-images.githubusercontent.com/7296111/34256732-6d0f1332-e65f-11e7-9296-d8cd1fa64c91.png)
 
 Now try the <script> tag which can be used for XSS attacks
+
+
 ![image3](https://user-images.githubusercontent.com/7296111/34256733-6d38d69a-e65f-11e7-9a1b-ad36d5941acb.png)
 
-This shows that there is a crosssite vulnerability on our form.
+This shows that there is a crosssite vulnerability on our form
+
 ![image4](https://user-images.githubusercontent.com/7296111/34256734-6d63fdca-e65f-11e7-9f1d-20ca5086a406.png)
 
 
