@@ -44,6 +44,8 @@ Explain what you have done here and why...
  npm install mocha chai --save-dev
  npm install request --save-dev
  Add "scripts": {"test": "mocha"} to package.json
+ npm install --save-dev grunt-cucumber-coverage
+
 
 
 ### Tests
@@ -62,6 +64,7 @@ Verify it is working by typing 'chromedriver' in the terminal. You should see:
 
 then:
     npm install
+    npm install --save-dev grunt-cucumber-coverage
     npm test
 #Docker
 To deploy the on Docker:
