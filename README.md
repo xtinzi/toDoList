@@ -6,6 +6,8 @@
 - Download archive from link provided
 - Unzip file and cd into it
 - run `npm install`
+- run `npm install sanitizer`
+
 
 ### Run
 `node app.js`
@@ -36,19 +38,33 @@ Visit http://localhost:8080 in your browser
 Explain what you have done here and why...
 
 #4 Add view for edit page, add get method to handle passing of todoitem id and what the item is, add post method to handle submission of edited item.
+  .get('/todo/edit/:id', function(req, res) {
+      let id = req.params.id;
+      let item = todolist[id];
+      res.render('edit.ejs', { id, item, clickHandler:"func1();" });
+  })
   
+  
+  This method adds a get request to the app that takes id as a parameter.
+  This renders the todo/edit page and fetches item at index id. This (current) item is showed in the todo/edit view along with an input for the edit text.
+  
+  .post('/todo/edit/', urlencodedParser, function(req, res) { 
+      let sanatisedstring = sanitizer.sanitize(req.body.edittodo);
+      if (req.body.edittodo != '' && req.body.edittodoid != '') {
+         todolist[req.body.edittodoid] = req.body.edittodo;
+      }
+      res.redirect('/todo');
+  })
+  
+  This method adds a post request to the app that has an item id in a hidden input.
+  This method takes the string inserted into the input, sanatizes it and then updates item at index id to the newly entered string.
 
 
+# Tests
+Tests were done with cucumber and the selenium webdriver.
 
-###Seting ip tests:
- npm install mocha chai --save-dev
- npm install request --save-dev
- Add "scripts": {"test": "mocha"} to package.json
- npm install --save-dev grunt-cucumber-coverage
+ALL TEST CASES WRITTEN WITH ASSUMPTION THAT THE LIST IS EMPTY SO PLEASE DELETE AND ITEMS ON THE LIST BEFORE RUNNNING TESTS.
 
-
-
-### Tests
 you'll need Chrome (or Chromium) installed, and you'll also need the Chromedriver executable available on your path. You can get Chromedriver from [here](http://chromedriver.storage.googleapis.com/index.html) and then, in Linux, you can add the directory to your path like this:
 
     export PATH=$PATH:~/path/to/directory/containing/chromedriver
@@ -64,9 +80,13 @@ Verify it is working by typing 'chromedriver' in the terminal. You should see:
 
 then:
     npm install
+    npm install sanitizer
     npm install --save-dev grunt-cucumber-coverage
     npm test
-###Docker
+    
+ this article explains how coverage was added to the tests: https://www.npmjs.com/package/grunt-cucumber-coverage
+
+#Docker
 To deploy the on Docker:
 make sure you have Docker installed
 then:	sudo docker build -t todo_docker .
@@ -79,7 +99,7 @@ now go to $ip_adress:8080/todo
 
 now you just need your VM's ip address
 
-###XSS
+#XSS
 Testing for XSS:
 using basic html tags we can test for a basic XSS vulnerability:
 
@@ -103,6 +123,51 @@ This shows that there is a crosssite vulnerability on our form
 
 ![image4](https://user-images.githubusercontent.com/7296111/34256734-6d63fdca-e65f-11e7-9f1d-20ca5086a406.png)
 
+
+The solution to fixing this was to add a sanitizer, where my vulnerable string is:
+
+before using sanitizer on add funtion:
+
+/* Adding an item to the to do list */
+.post('/todo/edit/', urlencodedParser, function(req, res) {
+    console.log(req.body.edittodoid);
+    if (req.body.edittodo != '' && req.body.edittodoid != '') {
+        todolist[req.body.edittodoid] = req.body.edittodo;
+    }
+    res.redirect('/todo');
+})
+
+/* Adding an item to the to do list */
+.post('/todo/add/', urlencodedParser, function(req, res) {
+    if (req.body.newtodo != '') {
+        todolist.push(req.body.newtodo);
+    }
+    res.redirect('/todo');
+})
+
+
+after using sanitizer on add function:
+
+    /* Adding an item to the to do list */
+    .post('/todo/edit/', urlencodedParser, function(req, res) {
+        let sanatisedstring = sanitizer.sanitize(req.body.edittodo);
+        if (req.body.edittodo != '' && req.body.edittodoid != '') {
+            todolist[req.body.edittodoid] = req.body.edittodo;
+        }
+        res.redirect('/todo');
+    })
+
+    /* Adding an item to the to do list */
+    .post('/todo/add/', urlencodedParser, function(req, res) {
+        let sanatisedstring = sanitizer.sanitize(req.body.newtodo);
+        if (sanatisedstring != '') {
+            todolist.push(sanatisedstring);
+        }
+        res.redirect('/todo');
+    })
+    
+we used: `npm install sanitizer` to install the sanitizer
+ 
 
 
 

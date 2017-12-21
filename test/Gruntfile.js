@@ -32,13 +32,13 @@ module.exports = function(grunt) {
                 src: 'features/support/',                            // folder to the tests to execute
                 options: {
                     coverage: 'testLogs/coverage',                      // set where coverage reports will be stored in relation to gruntfile
-                  /*check: {                                        // check coverage meets minimum requirements of project
-                   // lines: 50,
-                   //statements: 50,
-                   //functions: 50,
-                   //branches: 50,                              // all coverage levels are percentages to use during checks
-                   force: true                                 // when using tags checking is not performed, set force to still check coverage levels
-                   },*/
+                    /*check: {                                        // check coverage meets minimum requirements of project
+                     // lines: 50,
+                     //statements: 50,
+                     //functions: 50,
+                     //branches: 50,                              // all coverage levels are percentages to use during checks
+                     force: true                                 // when using tags checking is not performed, set force to still check coverage levels
+                     },*/
                     format: 'pretty',                               // showing output of feature execution (default: pretty)
                     print: 'detail',                                // display results of coverage to console (default: summary)
                     report: 'html',                                 // generate a coverage report (default: lcov)
