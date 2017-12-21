@@ -81,4 +81,15 @@ now you just need your VM's ip address
 
 ![image1](https://user-images.githubusercontent.com/7296111/34256731-6ce7c200-e65f-11e7-9366-1248ce4e27f6.png)
 
+![image2](https://user-images.githubusercontent.com/7296111/34256732-6d0f1332-e65f-11e7-9296-d8cd1fa64c91.png)
+
+![image3](https://user-images.githubusercontent.com/7296111/34256733-6d38d69a-e65f-11e7-9a1b-ad36d5941acb.png)
+
+![image4](https://user-images.githubusercontent.com/7296111/34256734-6d63fdca-e65f-11e7-9f1d-20ca5086a406.png)
+
+
+
+
+
+
 
