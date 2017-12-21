@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             toDo: {
                 src: 'features/support/',                            // folder to the tests to execute
                 options: {
-                    coverage: 'logs/coverage',                      // set where coverage reports will be stored in relation to gruntfile
+                    coverage: 'testLogs/coverage',                      // set where coverage reports will be stored in relation to gruntfile
                   /*check: {                                        // check coverage meets minimum requirements of project
                    // lines: 50,
                    //statements: 50,
