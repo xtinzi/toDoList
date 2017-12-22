@@ -79,21 +79,29 @@ Verify it is working by typing 'chromedriver' in the terminal. You should see:
     Only local connections are allowed.
 
 then:
+
     npm install
-    npm install sanitizer
-    npm install --save-dev grunt-cucumber-coverage
+    npm install sanitizer 
+    npm install --save-dev grunt-cucumber-coverage 
     npm test
     
  this article explains how coverage was added to the tests: https://www.npmjs.com/package/grunt-cucumber-coverage
 
 #Docker
-To deploy the on Docker:
-make sure you have Docker installed
-then:	sudo docker build -t todo_docker .
-	sudo docker run -it todo_docker bin/bash
 
-get your VM's ip address: ip adress
-	npm start
+To deploy the on Docker:
+
+make sure you have Docker installed
+
+then:	
+
+sudo docker build -t todo_docker .
+sudo docker run -it todo_docker bin/bash
+
+get your VM's ip address: 
+
+ip adress
+npm start
 
 now go to $ip_adress:8080/todo
 
