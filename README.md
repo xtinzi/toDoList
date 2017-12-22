@@ -34,11 +34,8 @@ Visit http://localhost:8080 in your browser
 > - Update the code as needed and document what you have done in the readme below
 > - Will be nice if you can git tag the tasks by number
 
-### Solution
-Explain what you have done here and why...
-
-
-###Edit function
+### Solutions:
+# Edit Functionality
 #4 Add view for edit page, add get method to handle passing of todoitem id and what the item is, add post method to handle submission of edited item.
   .get('/todo/edit/:id', function(req, res) {
       let id = req.params.id;
@@ -62,7 +59,7 @@ Explain what you have done here and why...
   This method takes the string inserted into the input, sanatizes it and then updates item at index id to the newly entered string.
 
 
-# Tests
+# Tests, including coverage
 Tests were done with cucumber and the selenium webdriver.
 
 ALL TEST CASES WRITTEN WITH ASSUMPTION THAT THE LIST IS EMPTY SO PLEASE DELETE AND ITEMS ON THE LIST BEFORE RUNNNING TESTS.
@@ -89,7 +86,7 @@ then:
     
  this article explains how coverage was added to the tests: https://www.npmjs.com/package/grunt-cucumber-coverage
 
-#Docker
+# Docker
 
 To deploy the on Docker:
 
@@ -109,7 +106,7 @@ now go to $ip_adress:8080/todo
 
 now you just need your VM's ip address
 
-#XSS
+# XSS
 Testing for XSS:
 using basic html tags we can test for a basic XSS vulnerability:
 
