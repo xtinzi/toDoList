@@ -37,6 +37,8 @@ Visit http://localhost:8080 in your browser
 ### Solution
 Explain what you have done here and why...
 
+
+###Edit function
 #4 Add view for edit page, add get method to handle passing of todoitem id and what the item is, add post method to handle submission of edited item.
   .get('/todo/edit/:id', function(req, res) {
       let id = req.params.id;
